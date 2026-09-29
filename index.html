@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oumaima Souguir — AI / ML Engineer</title>
+<meta name="description" content="Portfolio of Oumaima Souguir — AI/ML Engineer specialising in computer vision, NLP, RAG, distributed systems and MLOps. CS graduate CNAM Paris, Highest Honors.">
+<meta property="og:title" content="Oumaima Souguir — AI / ML Engineer">
+<meta property="og:description" content="Building intelligent systems from research prototypes to deployable software. Computer Vision · NLP · RAG · MLOps · Distributed Systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oumaima-souguir.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Oumaima Souguir — AI / ML Engineer">
+<meta name="twitter:description" content="Computer Vision · NLP · RAG · MLOps · Distributed Systems">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080D1A;
+  --bg-panel: #0D1426;
+  --bg-card: #111827;
+  --bg-tag: #162036;
+  --accent: #3FFFCF;
+  --accent-dim: rgba(63,255,207,0.12);
+  --accent-border: rgba(63,255,207,0.25);
+  --periwinkle: #7B8CDE;
+  --periwinkle-dim: rgba(123,140,222,0.12);
+  --text: #E2E8F5;
+  --text-muted: #6B7A99;
+  --text-dim: #9AAABB;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(63,255,207,0.3);
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Space Grotesk', sans-serif;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--accent); color: #080D1A; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: rgba(8,13,26,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-size: 0.8rem; font-weight: 600; font-family: var(--mono);
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer; background: transparent;
+}
+.nav-cta:hover { background: var(--accent-dim); }
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 7rem 0; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 7rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; }
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block; width: 2rem; height: 1px;
+  background: var(--accent);
+}
+h1.hero-name {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.hero-title {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: 620px;
+  line-height: 1.55;
+}
+.hero-title strong { color: var(--text-dim); font-weight: 500; }
+.hero-domains {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+.domain-tag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  background: var(--bg-panel);
+  transition: border-color 0.2s, color 0.2s;
+}
+.domain-tag:hover { border-color: var(--accent-border); color: var(--accent); }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.btn-primary {
+  padding: 0.75rem 1.75rem;
+  background: var(--accent);
+  color: #080D1A;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer; border: none;
+  transition: opacity 0.2s, transform 0.15s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-outline {
+  padding: 0.75rem 1.75rem;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer; background: transparent;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-outline:hover { border-color: var(--accent-border); color: var(--text); }
+.hero-socials {
+  display: flex; gap: 1.5rem; align-items: center;
+}
+.social-link {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8rem; font-family: var(--mono);
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.social-link:hover { color: var(--accent); }
+.hero-stats {
+  margin-top: 4rem;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stat-item {
+  background: var(--bg-panel);
+  padding: 1.25rem 1.5rem;
+}
+.stat-num {
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--accent);
+  font-family: var(--mono);
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-size: 0.75rem; color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* ── SECTION HEADERS ── */
+.section-header { margin-bottom: 3.5rem; }
+.section-label {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--accent); letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: ''; display: block; width: 1.5rem; height: 1px; background: var(--accent);
+}
+.section-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: var(--text); line-height: 1.2;
+}
+.section-sub {
+  margin-top: 0.75rem;
+  font-size: 0.95rem; color: var(--text-muted);
+  max-width: 520px; line-height: 1.6;
+}
+
+/* ── ABOUT ── */
+#about { background: var(--bg-panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.about-text p { color: var(--text-dim); line-height: 1.75; margin-bottom: 1.25rem; font-size: 0.95rem; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+.highlight-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.highlight-item:hover { border-color: var(--accent-border); }
+.hi-label { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); margin-bottom: 0.35rem; letter-spacing: 0.08em; }
+.hi-value { font-size: 0.88rem; color: var(--text-dim); line-height: 1.5; }
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.skill-group {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.skill-group:hover { border-color: var(--border-hover); }
+.sg-title {
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--accent); margin-bottom: 1rem;
+  font-family: var(--mono); letter-spacing: 0.06em;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  font-family: var(--mono); font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--bg-tag);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-dim);
+}
+
+/* ── PROJECTS ── */
+.projects-list { display: flex; flex-direction: column; gap: 1.5px; }
+.project-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  margin-bottom: 1rem;
+}
+.project-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 1px var(--accent-border) inset, 0 4px 32px rgba(0,0,0,0.3);
+}
+.project-index {
+  writing-mode: vertical-rl;
+  font-family: var(--mono); font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--border);
+  letter-spacing: 0.15em;
+  user-select: none;
+  background: rgba(255,255,255,0.02);
+  display: flex; align-items: center; justify-content: center;
+}
+.project-body { padding: 1.75rem 2rem; }
+.project-meta {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 0.6rem; flex-wrap: wrap;
+}
+.project-cat {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  border-radius: 3px;
+}
+.project-cat.cv { background: var(--periwinkle-dim); border-color: rgba(123,140,222,0.3); color: var(--periwinkle); }
+.project-cat.security { background: rgba(255,120,80,0.1); border-color: rgba(255,120,80,0.25); color: #FF9060; }
+.project-cat.mlops { background: rgba(255,200,80,0.08); border-color: rgba(255,200,80,0.2); color: #FFD060; }
+.project-name {
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--text); margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.project-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; max-width: 640px; }
+.project-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+.stack-tag {
+  font-family: var(--mono); font-size: 0.67rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--bg-tag);
+  border: 1px solid var(--border);
+  border-radius: 3px; color: var(--text-dim);
+}
+.project-metrics {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+}
+.metric {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.metric strong { color: var(--accent); font-size: 0.85rem; }
+.project-links {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
+  gap: 0.6rem; padding: 1.75rem 1.5rem;
+  border-left: 1px solid var(--border);
+  min-width: 120px;
+}
+.proj-link {
+  font-family: var(--mono); font-size: 0.7rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 3px; color: var(--text-muted);
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.proj-link:hover { border-color: var(--accent-border); color: var(--accent); }
+.proj-link.primary {
+  border-color: var(--accent-border); color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── ARCHITECTURE BLOCK ── */
+.arch-block {
+  margin: 1rem 0 0.5rem;
+  background: #060B16;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+.arch-block pre {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: #5A7A6A; line-height: 1.6;
+  white-space: pre;
+}
+.arch-block pre .hl { color: var(--accent); }
+.arch-block pre .hl2 { color: var(--periwinkle); }
+
+/* ── KAGGLE SECTION ── */
+.kaggle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.kaggle-card {
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 1.25rem; background: var(--bg-card);
+  transition: border-color 0.2s;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.kaggle-card:hover { border-color: rgba(32,214,160,0.3); }
+.kc-label {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
+  color: #20D6A0;
+}
+.kc-title { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.35; }
+.kc-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; flex: 1; }
+.kc-metrics { font-family: var(--mono); font-size: 0.7rem; color: var(--text-muted); }
+.kc-metrics strong { color: #20D6A0; }
+.kc-link {
+  font-family: var(--mono); font-size: 0.7rem;
+  color: var(--text-muted); border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem; display: inline-block;
+  transition: color 0.2s, border-color 0.2s;
+}
+.kc-link:hover { color: #20D6A0; border-color: rgba(32,214,160,0.4); }
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; }
+.exp-item {
+  display: grid; grid-template-columns: 1fr 3fr;
+  gap: 0 3rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-date { font-family: var(--mono); font-size: 0.75rem; color: var(--text-muted); padding-top: 0.2rem; }
+.exp-role { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+.exp-company { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.75rem; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.exp-bullets li {
+  font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;
+  padding-left: 1.1rem; position: relative;
+}
+.exp-bullets li::before {
+  content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+}
+
+/* ── EDUCATION ── */
+.edu-card {
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 2rem; background: var(--bg-panel);
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+.edu-degree { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+.edu-inst { font-size: 0.88rem; color: var(--accent); margin-bottom: 0.5rem; }
+.edu-detail { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+.edu-grade {
+  font-family: var(--mono); font-size: 1.8rem; font-weight: 700;
+  color: var(--accent); text-align: right; line-height: 1;
+}
+.edu-grade-label { font-family: var(--mono); font-size: 0.65rem; color: var(--text-muted); text-align: right; margin-top: 0.3rem; }
+
+/* ── CONTACT ── */
+#contact { background: var(--bg-panel); border-top: 1px solid var(--border); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.contact-copy p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+.contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--bg-card);
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-link:hover { border-color: var(--accent-border); background: var(--accent-dim); }
+.cl-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
+.cl-label { font-size: 0.78rem; color: var(--text-muted); font-family: var(--mono); }
+.cl-value { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.75rem; color: var(--text-muted); font-family: var(--mono);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card { grid-template-columns: 1fr; }
+  .project-index { writing-mode: initial; padding: 0.75rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+  .project-links { flex-direction: row; border-left: none; border-top: 1px solid var(--border); padding: 1rem 2rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .kaggle-grid { grid-template-columns: repeat(2, 1fr); }
+  .edu-card { grid-template-columns: 1fr; }
+  .edu-grade { text-align: left; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .kaggle-grid { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 4rem 0; }
+  .container { padding: 0 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">OS_</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#kaggle">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://github.com/OumaimaSouguir158" target="_blank" rel="noopener" class="nav-cta">GitHub ↗</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">AI / ML ENGINEER — TUNISIAN BASED, REMOTE-READY</div>
+    <h1 class="hero-name">Oumaima<br>Souguir</h1>
+    <p class="hero-title">
+      Building intelligent systems from research prototype to deployable software.<br>
+      <strong>Computer Vision · NLP · RAG · MLOps · Distributed Systems.</strong>
+    </p>
+    <div class="hero-domains">
+      <span class="domain-tag">Computer Vision</span>
+      <span class="domain-tag">NLP / RAG</span>
+      <span class="domain-tag">Recommendation Systems</span>
+      <span class="domain-tag">MLOps</span>
+      <span class="domain-tag">Distributed Systems</span>
+      <span class="domain-tag">AI Security</span>
+      <span class="domain-tag">Backend APIs</span>
+    </div>
+    <div class="hero-actions">
+      <a href="mailto:souguir.oumaima@hotmail.com" class="btn-primary">Get in touch</a>
+      <a href="https://github.com/OumaimaSouguir158" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+      <a href="https://www.kaggle.com/souguiroumaima79" target="_blank" rel="noopener" class="btn-outline">Kaggle ↗</a>
+    </div>
+    <div class="hero-socials">
+      <a href="https://linkedin.com/in/oumaimaprofile" target="_blank" rel="noopener" class="social-link">↗ LinkedIn</a>
+      <a href="https://oumaima-souguir.vercel.app" target="_blank" rel="noopener" class="social-link">↗ Portfolio</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">16.97</div>
+        <div class="stat-label">CNAM Paris GPA (/ 20)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Industry Roles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">17+</div>
+        <div class="stat-label">GitHub Repositories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Languages</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">ABOUT</div>
+      <h2 class="section-title">Profile</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Computer Science graduate from CNAM Paris (Licence STS, Highest Honors, 16.97/20, 180 ECTS) with a practical track record across five industry roles spanning mobile development, full-stack, API security and Python automation.</p>
+        <p>My work covers the full ML engineering lifecycle: data pipelines, model training, evaluation with established metrics, API-based inference, Docker packaging and CI/CD. On the AI side I have built RAG systems over 500+ pages of legal and scientific documents, evaluated them rigorously, and written research on chunking strategy.</p>
+        <p>On the software side I have shipped a distributed key-value cache with primary/replica replication and failure recovery, a containerized MLOps inference API, and a secure full-stack platform with Angular, Node.js and PostgreSQL.</p>
+        <p>I work in Arabic, French, English (C1) and German (B2), communicate clearly in distributed Agile teams, and I am ready for remote roles.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="hi-label">DEGREE</div>
+          <div class="hi-value">Licence STS — Informatique Générale<br>CNAM Paris · Highest Honors (Très Bien) · 16.97/20</div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-label">PRIMARY POSITIONING</div>
+          <div class="hi-value">AI / ML Engineer — Computer Vision · NLP · RAG · Recommendation · MLOps</div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-label">SOFTWARE ENGINEERING</div>
+          <div class="hi-value">Distributed Systems · REST APIs · Docker · Node.js · Angular · Kotlin/Android</div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-label">SECURITY</div>
+          <div class="hi-value">OWASP · JWT/OAuth2 · Network intrusion detection · Snort · SSL/TLS</div>
+        </div>
+        <div class="highlight-item">
+          <div class="hi-label">LOCATION &amp; AVAILABILITY</div>
+          <div class="hi-value">Sousse, Tunisia — Open to remote &amp; international roles</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">TECHNICAL STACK</div>
+      <h2 class="section-title">Technologies</h2>
+      <p class="section-sub">Only technologies present in my CV, internship work, or public repositories.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="sg-title">AI / MACHINE LEARNING</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">YOLOv8</span>
+          <span class="skill-tag">DETR</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">FAISS</span>
+          <span class="skill-tag">sentence-transformers</span>
+          <span class="skill-tag">OpenAI API</span>
+          <span class="skill-tag">Hugging Face</span>
+          <span class="skill-tag">CamemBERT</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">SHAP</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">SOFTWARE ENGINEERING</div>
+        <div class="skill-tags">
+          <span class="skill-tag">JavaScript / TypeScript</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">Kotlin (Android)</span>
+          <span class="skill-tag">REST API design</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Swagger</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Jira / Agile</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">MLOPS &amp; DEPLOYMENT</div>
+        <div class="skill-tags">
+          <span class="skill-tag">FastAPI inference</span>
+          <span class="skill-tag">Docker containerization</span>
+          <span class="skill-tag">joblib serialization</span>
+          <span class="skill-tag">CI/CD pipelines</span>
+          <span class="skill-tag">model serving</span>
+          <span class="skill-tag">health endpoints</span>
+          <span class="skill-tag">Pydantic validation</span>
+          <span class="skill-tag">MLflow (explored)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">CYBERSECURITY</div>
+        <div class="skill-tags">
+          <span class="skill-tag">JWT / OAuth 2.0</span>
+          <span class="skill-tag">OWASP Top 10</span>
+          <span class="skill-tag">SSL / TLS</span>
+          <span class="skill-tag">RSA / AES</span>
+          <span class="skill-tag">Snort IDS</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">Nmap</span>
+          <span class="skill-tag">Network segmentation</span>
+          <span class="skill-tag">Penetration testing (basic)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">DISTRIBUTED SYSTEMS</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Primary/replica replication</span>
+          <span class="skill-tag">Eventual consistency</span>
+          <span class="skill-tag">Node health monitoring</span>
+          <span class="skill-tag">Failure recovery</span>
+          <span class="skill-tag">Asynchronous sync</span>
+          <span class="skill-tag">HTTP inter-service comms</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">LANGUAGES</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Arabic (native)</span>
+          <span class="skill-tag">French (fluent — CNAM)</span>
+          <span class="skill-tag">English (C1)</span>
+          <span class="skill-tag">German (B2)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">FLAGSHIP PROJECTS</div>
+      <h2 class="section-title">Selected Work</h2>
+      <p class="section-sub">Eight projects selected for depth across different engineering dimensions. No invented metrics.</p>
+    </div>
+    <div class="projects-list">
+
+      <!-- 1 RAG -->
+      <div class="project-card">
+        <div class="project-index">01</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat">NLP / RAG</span>
+          </div>
+          <div class="project-name">RAG Question-Answering System</div>
+          <p class="project-desc">
+            Full RAG pipeline over ~200 legal and scientific documents (500+ pages). Semantic chunking, dense embeddings with all-MiniLM-L6-v2, FAISS cosine-similarity retrieval, GPT integration with structured prompting to ground answers in retrieved sources and limit hallucinations. Evaluated on faithfulness and retrieval precision; documented chunking sensitivity and domain embedding quality as main limitations.
+          </p>
+          <div class="arch-block">
+            <pre><span class="hl">Documents (200 · 500+ pages)</span>
+       ↓  Semantic Chunking
+<span class="hl2">Dense Embeddings</span>  (all-MiniLM-L6-v2)
+       ↓
+  <span class="hl">FAISS Index</span>  (cosine similarity)
+       ↓  Top-k Retrieval
+  <span class="hl2">GPT + Structured Prompt</span>
+       ↓
+ Grounded Answer + Source Citations</pre>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">LangChain</span>
+            <span class="stack-tag">FAISS</span><span class="stack-tag">sentence-transformers</span>
+            <span class="stack-tag">OpenAI API</span><span class="stack-tag">Jupyter</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric"><strong>0.83</strong><br>Faithfulness</div>
+            <div class="metric"><strong>0.79</strong><br>Precision@5</div>
+            <div class="metric"><strong>500+</strong><br>Pages processed</div>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://www.kaggle.com/code/souguiroumaima79/rag-specialized-corpus" target="_blank" rel="noopener" class="proj-link primary">Kaggle ↗</a>
+          <span class="proj-link" style="color:var(--text-muted);cursor:default;">Research report</span>
+        </div>
+      </div>
+
+      <!-- 2 Satellite CV -->
+      <div class="project-card">
+        <div class="project-index">02</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat cv">Computer Vision</span>
+          </div>
+          <div class="project-name">Satellite Object Detection — YOLOv8 vs DETR</div>
+          <p class="project-desc">
+            Benchmark of two object-detection architectures on satellite imagery. Built a 1,500+ image, 5-class dataset with 640×640 tiling, augmentation and NMS post-processing. Compared YOLOv8 and DETR end-to-end: training, evaluation, inference speed. Recommended YOLOv8 for real-time use based on mAP and inference latency.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">YOLOv8</span>
+            <span class="stack-tag">DETR</span><span class="stack-tag">PyTorch</span>
+            <span class="stack-tag">OpenCV</span><span class="stack-tag">Roboflow</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric"><strong>0.81</strong><br>YOLOv8 mAP@0.5</div>
+            <div class="metric"><strong>0.76</strong><br>DETR mAP@0.5</div>
+            <div class="metric"><strong>~3×</strong><br>YOLOv8 inference speedup</div>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/Satellite_object_detection" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+          <a href="https://www.kaggle.com/code/souguiroumaima79/satellite-object-detection-with-yolo-detr" target="_blank" rel="noopener" class="proj-link">Kaggle ↗</a>
+        </div>
+      </div>
+
+      <!-- 3 Distributed Cache -->
+      <div class="project-card">
+        <div class="project-index">03</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat" style="background:rgba(180,120,255,0.12);border-color:rgba(180,120,255,0.28);color:#C090FF;">Distributed Systems</span>
+          </div>
+          <div class="project-name">Distributed Key-Value Cache with Replication</div>
+          <p class="project-desc">
+            In-memory distributed cache across three nodes — one primary, two replicas — with asynchronous replication, eventual consistency, node health monitoring, failure handling and full data re-synchronization after node recovery. Inter-node communication over HTTP. Designed to demonstrate fault tolerance under replica failure scenarios.
+          </p>
+          <div class="arch-block">
+            <pre>Client (read/write)
+      │
+      ▼
+<span class="hl">Primary Node</span>  ←  write authority
+      │  async replication
+      ├──────────────────▶ <span class="hl2">Replica 1</span>
+      │                         ↑ health check / resync on recovery
+      └──────────────────▶ <span class="hl2">Replica 2</span>
+                                ↑ health check / resync on recovery
+
+Failure path: primary detects replica down → marks stale
+              replica recovers → full sync from primary state</pre>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">JavaScript</span><span class="stack-tag">Node.js</span>
+            <span class="stack-tag">HTTP</span><span class="stack-tag">Docker</span>
+            <span class="stack-tag">REST API</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/cache_distribue" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- 4 MLOps -->
+      <div class="project-card">
+        <div class="project-index">04</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat mlops">MLOps</span>
+          </div>
+          <div class="project-name">ML Model Deployment as a Containerized API</div>
+          <p class="project-desc">
+            Production-oriented deployment of a trained churn-prediction model as a containerized REST inference API. FastAPI with a /predict endpoint, Pydantic input validation and a /health monitoring endpoint. Model, scaler and encoders serialized with joblib; packaged in Docker for reproducible deployment. Demonstrates the gap between notebook and production ML.
+          </p>
+          <div class="arch-block">
+            <pre>Trained Model (Scikit-learn)
+      │  joblib serialization
+      ▼
+<span class="hl">FastAPI App</span>
+  ├── /health  →  readiness probe
+  └── /predict →  Pydantic input validation
+                    │
+                    ▼
+               Preprocessor (scaler + encoders)
+                    │
+                    ▼
+               Model inference → JSON response
+      │
+      ▼
+<span class="hl2">Docker Container</span>  (one-command deployment)</pre>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">Scikit-learn</span><span class="stack-tag">Pydantic</span>
+            <span class="stack-tag">joblib</span><span class="stack-tag">Docker</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/Deploiement_API_MLOps" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- 5 Tourism NLP -->
+      <div class="project-card">
+        <div class="project-index">05</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat">NLP · Recommendation</span>
+          </div>
+          <div class="project-name">Tourism Recommendation — CamemBERT + Hybrid System</div>
+          <p class="project-desc">
+            French-language NLP recommendation system for tourism, using CamemBERT (French BERT variant) for semantic understanding of user intent and destination descriptions. Combined with a hybrid recommendation approach (collaborative + content-based filtering) evaluated on Kaggle. Tourism domain application of NLP and recommendation engineering.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">CamemBERT</span>
+            <span class="stack-tag">Hugging Face</span><span class="stack-tag">Pandas</span>
+            <span class="stack-tag">Scikit-learn</span><span class="stack-tag">French NLP</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/Projet1_NLP_CamemBERT_Recommandation_Touristique" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+          <a href="https://www.kaggle.com/code/souguiroumaima79/tourist-recommandation" target="_blank" rel="noopener" class="proj-link">Kaggle ↗</a>
+        </div>
+      </div>
+
+      <!-- 6 Network Intrusion -->
+      <div class="project-card">
+        <div class="project-index">06</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat security">Cybersecurity</span>
+          </div>
+          <div class="project-name">Network Intrusion Detection System</div>
+          <p class="project-desc">
+            Custom Snort IDS rules targeting port scans, SSH brute-force and SQL injection attacks. Python parser for Snort alert logs producing structured audit reports. Combined with ML-based anomaly detection on network traffic data. Demonstrates end-to-end network security engineering: rule authoring → alert generation → automated analysis.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Snort</span><span class="stack-tag">Python</span>
+            <span class="stack-tag">Wireshark</span><span class="stack-tag">Linux</span>
+            <span class="stack-tag">Bash</span><span class="stack-tag">Nmap</span>
+            <span class="stack-tag">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/Projet2_Detection_Anomalies_Reseau" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+          <a href="https://www.kaggle.com/code/souguiroumaima79/network-intrusion-detection" target="_blank" rel="noopener" class="proj-link">Kaggle ↗</a>
+        </div>
+      </div>
+
+      <!-- 7 University Library -->
+      <div class="project-card">
+        <div class="project-index">07</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat" style="background:rgba(123,140,222,0.12);border-color:rgba(123,140,222,0.28);color:#7B8CDE;">Full Stack</span>
+          </div>
+          <div class="project-name">University Library System — Full-Stack Platform</div>
+          <p class="project-desc">
+            End-to-end library management platform. UML data models, PostgreSQL schema, secure REST API with Swagger documentation and Postman testing, JWT authentication with role-based access (admin, librarian, student). Responsive Angular frontend with multi-criteria search, reservations and admin dashboard. Dockerized for one-command local setup.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Angular</span><span class="stack-tag">Node.js / Express</span>
+            <span class="stack-tag">PostgreSQL</span><span class="stack-tag">JWT</span>
+            <span class="stack-tag">Docker</span><span class="stack-tag">Swagger</span>
+            <span class="stack-tag">Postman</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/University-Library" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- 8 Churn / Explainability -->
+      <div class="project-card">
+        <div class="project-index">08</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-cat mlops">ML · Explainability</span>
+          </div>
+          <div class="project-name">Customer Churn Prediction with SHAP Explainability</div>
+          <p class="project-desc">
+            End-to-end ML pipeline on 7,000+ telecom records: data cleaning, feature encoding, model benchmarking (Logistic Regression, Random Forest, SVM) with k-fold cross-validation. AUC 0.87 with Random Forest. SHAP feature importance to explain top churn drivers — bridging model accuracy with business interpretability.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span><span class="stack-tag">Pandas</span>
+            <span class="stack-tag">Scikit-learn</span><span class="stack-tag">SHAP</span>
+            <span class="stack-tag">Matplotlib</span><span class="stack-tag">Seaborn</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric"><strong>0.87</strong><br>AUC (Random Forest)</div>
+            <div class="metric"><strong>7,000+</strong><br>Records</div>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/OumaimaSouguir158/Prediction_Churn" target="_blank" rel="noopener" class="proj-link primary">GitHub ↗</a>
+          <a href="https://www.kaggle.com/code/souguiroumaima79/telco-churn-beyond-accuracy" target="_blank" rel="noopener" class="proj-link">Kaggle ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KAGGLE RESEARCH -->
+<section id="kaggle" style="background:var(--bg-panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">KAGGLE RESEARCH</div>
+      <h2 class="section-title">Selected Notebooks</h2>
+      <p class="section-sub">Research and experimentation work across deep learning, medical imaging, generative models and explainable AI.</p>
+    </div>
+    <div class="kaggle-grid">
+      <div class="kaggle-card">
+        <div class="kc-label">MEDICAL IMAGING</div>
+        <div class="kc-title">BraTS Brain Tumour Segmentation — U-Net</div>
+        <div class="kc-desc">U-Net architecture applied to the BraTS MRI dataset for multi-class brain tumour segmentation. Demonstrates medical imaging preprocessing and segmentation pipeline.</div>
+        <a href="https://www.kaggle.com/code/souguiroumaima79/brats-unet-segmentation" target="_blank" rel="noopener" class="kc-link">View notebook ↗</a>
+      </div>
+      <div class="kaggle-card">
+        <div class="kc-label">COMPUTER VISION</div>
+        <div class="kc-title">Aerial YOLOv8 Object Detection</div>
+        <div class="kc-desc">YOLOv8 applied to aerial imagery — dataset preparation, training configuration, evaluation and inference.</div>
+        <a href="https://www.kaggle.com/code/souguiroumaima79/aerial-yolov8-object-detection" target="_blank" rel="noopener" class="kc-link">View notebook ↗</a>
+      </div>
+      <div class="kaggle-card">
+        <div class="kc-label">EXPLAINABLE AI</div>
+        <div class="kc-title">Explainable AI Audit</div>
+        <div class="kc-desc">Model interpretability analysis using SHAP and related XAI techniques. Connects model decisions to feature-level explanations for audit purposes.</div>
+        <a href="https://www.kaggle.com/code/souguiroumaima79/explainable-ai-audit" target="_blank" rel="noopener" class="kc-link">View notebook ↗</a>
+      </div>
+      <div class="kaggle-card">
+        <div class="kc-label">GENERATIVE AI</div>
+        <div class="kc-title">CGAN Mode Collapse Study</div>
+        <div class="kc-desc">Conditional GAN training with analysis of mode collapse behaviour — training instability, generator diversity loss and mitigation approaches.</div>
+        <a href="https://www.kaggle.com/code/souguiroumaima79/cgan-mode-collapse" target="_blank" rel="noopener" class="kc-link">View notebook ↗</a>
+      </div>
+      <div class="kaggle-card">
+        <div class="kc-label">RECOMMENDATION</div>
+        <div class="kc-title">Hybrid Recommendation System</div>
+        <div class="kc-desc">Hybrid recommender combining collaborative and content-based filtering. Evaluation of trade-offs between approaches on a real dataset.</div>
+        <a href="https://www.kaggle.com/code/souguiroumaima79/hybrid-recommendation-system" target="_blank" rel="noopener" class="kc-link">View notebook ↗</a>
+      </div>
+      <div class="kaggle-card">
+        <div class="kc-label">HEALTHCARE ML</div>
+        <div class="kc-title">Heart Disease Prediction</div>
+        <div class="kc-desc">Classification pipeline for cardiovascular risk prediction — feature selection, class balance handling, model evaluation and clinical interpretability.</div>
+        <a href="https://www.kaggle.com/code/souguiroumaima79/heart-diease-prediction" target="_blank" rel="noopener" class="kc-link">View notebook ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">EXPERIENCE</div>
+      <h2 class="section-title">Professional History</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date">Nov – Dec 2025<br>Hammam Sousse, TN</div>
+        <div>
+          <div class="exp-role">Automation &amp; Process Optimization Developer</div>
+          <div class="exp-company">Satisfy Insight</div>
+          <ul class="exp-bullets">
+            <li>Built Python automation scripts to streamline operational data processing and reduce manual workload.</li>
+            <li>Automated data collection, processing and validation with Selenium, improving reliability and turnaround speed of contract workflows.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Oct – Dec 2025<br>Port El Kantaoui, TN</div>
+        <div>
+          <div class="exp-role">Product &amp; Contract Coordinator</div>
+          <div class="exp-company">Best Time Travel (BTT TN)</div>
+          <ul class="exp-bullets">
+            <li>Managed 17 hotel allotment contracts with &gt;99% data accuracy on Sunhotels and Webbeds platforms.</li>
+            <li>Configured pricing rules, quotas and booking conditions; adjusted inventory to market demand to optimize revenue yield.</li>
+            <li>Maintained contractual data quality and synchronization across multiple distribution channels.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Jun 2023 – Jan 2024<br>Paris, FR (Remote)</div>
+        <div>
+          <div class="exp-role">Mobile Developer Intern</div>
+          <div class="exp-company">Hacktoad — Paris</div>
+          <ul class="exp-bullets">
+            <li>Developed secure Android applications in Kotlin (MVVM), following OWASP mobile guidelines with strong encryption.</li>
+            <li>Integrated RESTful APIs and built authentication and data-protection layers.</li>
+            <li>Worked in a remote Agile/Scrum team via Jira and Trello; contributed to a 15% improvement in delivery velocity.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Jun – Jul 2022<br>Hammam Sousse, TN</div>
+        <div>
+          <div class="exp-role">Full-Stack Developer Intern</div>
+          <div class="exp-company">IT Gate</div>
+          <ul class="exp-bullets">
+            <li>Built a secure full-stack web application with Angular 13, Node.js and MongoDB, using RSA/AES encryption.</li>
+            <li>Integrated OAuth 2.0 authentication, reducing unauthorized access incidents by 25%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Sep – Nov 2021<br>Sousse, TN</div>
+        <div>
+          <div class="exp-role">API Security Intern</div>
+          <div class="exp-company">Lab-IT</div>
+          <ul class="exp-bullets">
+            <li>Secured RESTful APIs with JWT/OAuth 2.0 (validated in Postman) and configured NGINX with SSL certificates.</li>
+            <li>Ran basic penetration tests and coordinated deployment via Jira; achieved a 50% reduction in configuration errors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg-panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">EDUCATION</div>
+      <h2 class="section-title">Academic Background</h2>
+    </div>
+    <div class="edu-card" style="margin-bottom:1rem;">
+      <div>
+        <div class="edu-degree">Licence STS — Informatique Générale (Computer Science)</div>
+        <div class="edu-inst">CNAM Paris · French National Bachelor's Degree (Bac+3) · 180 ECTS</div>
+        <div class="edu-detail">
+          Obtained via IMSET Sousse as an official CNAM partner.<br>
+          Key modules: Programming Paradigms (18.3/20) · Advanced Mathematics (19.6/20) · Internet Technologies (18.2/20) · Application Security (16.8/20) · Information Systems Architecture (16.8/20)
+        </div>
+      </div>
+      <div>
+        <div class="edu-grade">16.97</div>
+        <div class="edu-grade-label">/ 20 · HIGHEST HONORS<br>TRÈS BIEN · 2025</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">German Language Training (A1 → B2)</div>
+        <div class="edu-inst">Boosteno Language Institute · Sousse · Sep 2023 – Jun 2024</div>
+        <div class="edu-detail">Full progression from A1 to B2 level in German.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">CONTACT</div>
+      <h2 class="section-title">Get in Touch</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <p>I am open to remote Junior ML/AI Engineering roles, full-stack positions and internship opportunities, particularly in France, Europe and internationally.</p>
+        <p>I communicate in Arabic, French, English (C1) and German (B2), and have experience shipping code in remote distributed Agile teams.</p>
+        <p>All code is available for review on GitHub. My CV is available on request.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:souguir.oumaima@hotmail.com" class="contact-link">
+          <span class="cl-icon">✉</span>
+          <div>
+            <div class="cl-label">EMAIL</div>
+            <div class="cl-value">souguir.oumaima@hotmail.com</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/oumaimaprofile" target="_blank" rel="noopener" class="contact-link">
+          <span class="cl-icon">in</span>
+          <div>
+            <div class="cl-label">LINKEDIN</div>
+            <div class="cl-value">linkedin.com/in/oumaimaprofile</div>
+          </div>
+        </a>
+        <a href="https://github.com/OumaimaSouguir158" target="_blank" rel="noopener" class="contact-link">
+          <span class="cl-icon">⌥</span>
+          <div>
+            <div class="cl-label">GITHUB</div>
+            <div class="cl-value">github.com/OumaimaSouguir158</div>
+          </div>
+        </a>
+        <a href="https://www.kaggle.com/souguiroumaima79" target="_blank" rel="noopener" class="contact-link">
+          <span class="cl-icon">K</span>
+          <div>
+            <div class="cl-label">KAGGLE</div>
+            <div class="cl-value">kaggle.com/souguiroumaima79</div>
+          </div>
+        </a>
+        <a href="https://oumaima-souguir.vercel.app" target="_blank" rel="noopener" class="contact-link">
+          <span class="cl-icon">⎋</span>
+          <div>
+            <div class="cl-label">PORTFOLIO</div>
+            <div class="cl-value">oumaima-souguir.vercel.app</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Oumaima Souguir · AI / ML Engineer · Sousse, Tunisia</span>
+  <span>souguir.oumaima@hotmail.com</span>
+</footer>
+
+</body>
+</html>
