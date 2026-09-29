@@ -2,7 +2,7 @@
 
 Personal portfolio website for **Oumaima Souguir**, AI / ML Engineer.
 
-Live at: **[oumaima-souguir.vercel.app](https://oumaima-souguir.vercel.app)**
+Live at: [https://portfolio-l84u.vercel.app/](https://portfolio-l84u.vercel.app/)
 
 ---
 
